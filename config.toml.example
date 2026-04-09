@@ -1,0 +1,173 @@
+# Pwnagotchi Configuration Example (config.toml)
+# MiTecHoy Edition - v2.9.5.4 Jayofelony (2026)
+# 
+# ⚠️ IMPORTANTE:
+# 1. Guardar como: config.toml (SIN extensión .txt)
+# 2. Colocar en: /boot/firmware/ o raíz de la partición boot
+# 3. Caracteres permitidos en 'name': a-zA-Z0-9- SOLAMENTE
+# 4. NO usar puntos (.), espacios o caracteres especiales
+
+# ==================== CONFIGURACIÓN PRINCIPAL ====================
+
+[main]
+# Nombre de tu Pwnagotchi (sin puntos, sin espacios)
+# ✅ CORRECTO: "bicho-v4", "HectorV4", "pwn2026"
+# ❌ INCORRECTO: "bicho-2.4G", "bicho 2.4G", "bicho_test"
+name = "pwnagotchi"
+
+# Idioma (en = inglés, es = español si está disponible)
+lang = "en"
+
+# Interfaz de Wi-Fi a monitorear
+iface = "wlan0mon"
+
+# Redes a NUNCA atacar (Whitelist)
+# ⚠️ CRÍTICO: Agregar tu propia red para no matarte el internet
+whitelist = [
+  "TU_RED_WIFI_2.4G",
+  "TU_RED_WIFI_5G",
+  "AA:BB:CC:DD:EE:FF"  # MAC de tu teléfono (opcional)
+]
+
+# ==================== CONFIGURACIÓN DE PANTALLA ====================
+
+[ui]
+# Invertir colores (true = fondo negro, false = fondo blanco)
+invert = false
+
+# Mostrar cursor en la pantalla
+cursor = true
+
+# Frames por segundo (0 = solo actualizaciones mayores)
+fps = 0.0
+
+# ==================== CONFIGURACIÓN DE PANTALLA (DISPLAY) ====================
+
+[ui.display]
+# Habilitar la pantalla e-ink
+enabled = true
+
+# TIPO DE PANTALLA - ⚠️ CRÍTICO SELECCIONAR CORRECTO
+# Waveshare 2.13" V3:     waveshare_3
+# Waveshare 2.13" V4:     waveshare_4 ← MÁS COMÚN EN 2026
+# Waveshare 2.13" V5.83:  waveshare_583
+# SSD1306 OLED:          ssd1306
+type = "waveshare_4"
+
+# Color de texto (black o white)
+# ⚠️ Si invert=true, esto se invierte automáticamente
+color = "black"
+
+# Rotación de la pantalla (0, 90, 180, 270)
+# 180 = Pantalla de cabeza para leer horizontalmente
+rotation = 180
+
+# Mostrar IP y puerto en la pantalla
+# Formato: "IP:PUERTO"
+ip_format = "10.0.0.2:8080"
+
+# ==================== CONFIGURACIÓN DE FUENTES ====================
+
+[ui.font]
+# Nombre de fuente (DejaVuSansMono es estándar)
+name = "DejaVuSansMono"
+
+# Ajuste de tamaño (-1, 0, 1, etc)
+size_offset = 0
+
+# ==================== CONFIGURACIÓN DE PERSONALIDAD ====================
+
+[personality]
+# Advertise (true = anunciarse a otros Pwnagotchis cercanos)
+advertise = true
+
+# Deauth attacks (true = atacar activamente)
+deauth = true
+
+# Association attempts (true = intentar asociarse)
+associate = true
+
+# Mínima potencia de señal para atacar (-200 es muy débil, -30 muy fuerte)
+min_rssi = -200
+
+# Tiempo de vida de un AP (puntos de acceso)
+ap_ttl = 120
+
+# Tiempo de vida de una station (dispositivo conectado)
+sta_ttl = 300
+
+# Tiempo de recon por canal (segundos)
+recon_time = 30
+
+# ==================== PLUGINS RECOMENDADOS ====================
+
+[main.plugins]
+
+# Auto-tune: Optimiza automáticamente el comportamiento
+auto-tune = { enabled = true }
+
+# Auto-update: Actualiza automáticamente (requiere internet)
+auto-update = { enabled = true, install = true, interval = 1 }
+
+# Cache: Guarda redes encontradas
+cache = { enabled = true }
+
+# Grid: Reporta a OpwnGrid (opcional, compartir datos globalmente)
+grid = { enabled = true, report = true }
+
+# Memory & Temperature (MiTecHoy Essential)
+memtemp = { enabled = true, scale = "celsius", orientation = "horizontal" }
+
+# Log tail: Muestra logs en pantalla
+logtail = { enabled = true }
+
+# Web configuration: Permite editar config desde web UI
+webcfg = { enabled = true }
+
+# ==================== BETTERCAP (Motor de Ataque) ====================
+
+[bettercap]
+# Ubicación donde guardar los handshakes capturados
+handshakes = "/home/pi/handshakes"
+
+# Eventos a silenciar (reducir ruido de logs)
+silence = [
+  "ble.device.new",
+  "ble.device.lost",
+  "wifi.client.new",
+  "wifi.client.lost"
+]
+
+# ==================== CONFIGURACIÓN DE ARCHIVOS ====================
+
+[log]
+# Ruta del log principal
+path = "/etc/pwnagotchi/log/pwnagotchi.log"
+
+# Ruta del log de debug
+path-debug = "/etc/pwnagotchi/log/pwnagotchi-debug.log"
+
+# ==================== NOTAS FINALES ====================
+
+# 1. Si algo falla, ejecutar:
+#    sudo pwnagotchi --debug
+#    para ver el error exacto
+
+# 2. Si la pantalla no se actualiza:
+#    - Verificar que el tipo de pantalla sea correcto
+#    - Intentar cambiar el valor de rotation (0, 90, 180, 270)
+
+# 3. Si no captura handshakes:
+#    - Verificar que deauth = true
+#    - Verificar que las redes NO estén en whitelist
+#    - Ejecutar: tail -f /var/log/pwnagotchi.log
+
+# 4. Acceder a la interfaz web:
+#    http://10.0.0.2:8080
+#    Usuario: admin
+#    Contraseña: admin
+
+# ==================== SOPORTE ====================
+# Para más ayuda: https://www.mitechoy.com
+# YouTube: @Mitechoy
+# Documento completo: https://github.com/MiTecHoy/Pwnagotchi-Guide
