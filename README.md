@@ -25,8 +25,7 @@
 ```
 [![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/MiTecHoy/pwnagotchi-guide?style=social)](https://github.com/MiTecHoy/pwnagotchi-guide)
-[![YouTube Channel](https://img.shields.io/youtube/channel/subscribers/UCxxxxxxxxxxxxxx?style=social)](https://youtube.com/@Mitechoy)
----
+[![YouTube Channel](https://img.shields.io/youtube/channel/subscribers/UCfwkJpehBxb5WRGnoFQhKug?style=social)](https://www.youtube.com/@Mitechoy)---
 
 ## 🎖️ INSIGNIAS Y RECONOCIMIENTOS
 
