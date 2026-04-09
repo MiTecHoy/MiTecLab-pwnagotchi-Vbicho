@@ -454,8 +454,8 @@ sudo systemctl restart pwnagotchi
 
 ```toml
 main.whitelist = [
-  "IZZI-44F6-5G",      # Red 5G
-  "IZZI-44F6",         # Red 2.4G
+  "IZZIL054-5G",      # Red 5G
+  "IFINITUM-&@H1",         # Red 2.4G
   "AA:BB:CC:DD:EE:FF"  # MAC de tu teléfono
 ]
 ```
@@ -656,21 +656,7 @@ El Pwnagotchi es una herramienta de auditoría de red. Solo debe utilizarse:
 - Violación de leyes locales de ciberseguridad
 
 El autor y MiTecHoy NO son responsables del mal uso de esta herramienta.
-Úsala responsablemente y dentro de los marcos legales de tu jurisdicción.
-```
-
----
-
-## 🎬 VERSIÓN DE VIDEO
-
-Próximamente en **YouTube @Mitechoy**:
-
-- 📹 Tutorial paso a paso completo
-- 🐛 Troubleshooting visual
-- 🎥 Captura de handshakes en tiempo real
-- 💡 Tips avanzados y casos reales
-
-**Suscríbete** para ser el primero en verlo: https://www.youtube.com/@Mitechoy
+Úsala responsablemente y dentro de los marcos legales de tu jurisdiccion.
 
 ---
 
